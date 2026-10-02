@@ -8,18 +8,15 @@ public class Solution {
      */
 
     public double average(double t1, double t2, double t3, double t4) {
-        // remove 0.0 and return your answer
-        return 0.0;
+        return (t1+t2+t3+t4)/4;
     }
 
     public int roundAverage(double average) {
-        // remove 0 and return your answer
-        return 0;
+        return (int) (average+0.5);
     }
 
     public boolean isPassing(int roundedAverage) {
-        // remove false and return your answer
-        return false;
+        return (roundedAverage>=65);
     }
 
     /*
@@ -27,23 +24,45 @@ public class Solution {
     */
 
     public double totalStock(int shares, double price) {
-        // remove 0.0 and return your answer
-        return 0.0;
+        return shares*price;
     }
 
 
     public int roundValueChange(double totalStock) {
-        // remove 0 and return your answer
-        return 0;
+        return (int) (Math.round(totalStock));
     }
 
     /*
     Problem 3: Digit Incrementer 
     */
-   
+   //the worst program in existence i think
+    public double addDigit(double number, double digits) {
+        System.out.println(number + " gume");
+        System.out.println(digits + " digit");
+        if (0.085<number && number<0.0901) {
+            number = 0.09;
+        }
+        number -= number % (digits);
+        System.out.println(number + " pume");
+        if (number==0.09) {
+            number = 0;
+        }
+        number += ((digits));
+        System.out.println(number + " nume");
+        
+        System.out.println((number % (digits*10)) + " kys");
+        return (number % (digits*10));
+    }
+
     public double adjustDigits(double userDouble) {
-        // remove 0.0 and return your answer
-        return 0.0;
+        double newDouble = 0;
+        for (double i=0.1; i<10000; i*=10) {
+            System.out.println(i + " i");
+            newDouble += addDigit((userDouble%i), i/10);
+            System.out.println(newDouble);
+        }
+        newDouble -= newDouble % (0.01);
+        return newDouble;
     }
 
     public static void main(String[] args) {
