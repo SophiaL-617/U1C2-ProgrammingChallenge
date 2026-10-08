@@ -35,33 +35,21 @@ public class Solution {
     /*
     Problem 3: Digit Incrementer 
     */
-   //the worst program in existence i think
+   //mildly less worst program in existence i think
     public double addDigit(double number, double digits) {
-        System.out.println(number + " gume");
-        System.out.println(digits + " digit");
-        if (0.085<number && number<0.0901) {
-            number = 0.09;
-        }
         number -= number % (digits);
-        System.out.println(number + " pume");
-        if (number==0.09) {
-            number = 0;
-        }
         number += ((digits));
-        System.out.println(number + " nume");
-        
-        System.out.println((number % (digits*10)) + " kys");
         return (number % (digits*10));
     }
 
     public double adjustDigits(double userDouble) {
         double newDouble = 0;
-        for (double i=0.1; i<10000; i*=10) {
-            System.out.println(i + " i");
+        for (double i=10; i<10000; i*=10) {
             newDouble += addDigit((userDouble%i), i/10);
-            System.out.println(newDouble);
         }
-        newDouble -= newDouble % (0.01);
+        int tenths = (int) (((userDouble % 1) * 10) + 1)%10;
+        int hundreths = (int) (((userDouble % 0.1) * 10) + 1)%10;
+        newDouble += tenths/10.0 + hundreths/100.0;
         return newDouble;
     }
 
